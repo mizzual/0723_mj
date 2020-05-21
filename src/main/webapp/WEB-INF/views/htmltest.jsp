@@ -3,18 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-p {color: red; text-align: center;}
-</style>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="/resources/js/user.js"></script>
 </head>
 <body>
-	<p>1일부 내용의 스타일을 변경할 때 전체
-		페이지의 내용을 한꺼번에 수정할 수 있도록</p>
-	<p>2일부 내용의 스타일을 변경할 때 전체
-		페이지의 내용을 한꺼번에 수정할 수 있도록</p>
-	<p>3일부 내용의 스타일을 변경할 때 전체
-		페이지의 내용을 한꺼번에 수정할 수 있도록</p>
+	<h1>JavaScript 구현 예</h1>
+	<p id="exam">변경 전</p>
+	<button type="button" onclick="myFunctions()">변경</button>
+	
 </body>
 </html>
