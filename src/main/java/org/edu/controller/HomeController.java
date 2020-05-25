@@ -20,10 +20,16 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
+	 * we are 페이지 파일 입니다.
+	 */
+	@RequestMapping(value = "/weare", method = RequestMethod.GET)
+	public String weare(Locale locale, Model model) {
+		
+		return "weare";
+	}
+	
+	/**
 	 * html5 테스트용 파일 입니다.
-	 * @param locale
-	 * @param model
-	 * @return
 	 */
 	@RequestMapping(value = "/htmltest", method = RequestMethod.GET)
 	public String htmltest(Locale locale, Model model) {
