@@ -20,6 +20,24 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
+	 * CONTACT US 페이지 파일 입니다.
+	 */
+	@RequestMapping(value = "/contactus", method = RequestMethod.GET)
+	public String contactus(Locale locale, Model model) {
+		
+		return "contactus";
+	}
+	
+	/**
+	 * BLOG 페이지 파일 입니다.
+	 */
+	@RequestMapping(value = "/blog", method = RequestMethod.GET)
+	public String blog(Locale locale, Model model) {
+		
+		return "blog";
+	}
+	
+	/**
 	 * WORK 페이지 파일 입니다.
 	 */
 	@RequestMapping(value = "/work", method = RequestMethod.GET)
