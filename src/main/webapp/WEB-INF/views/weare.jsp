@@ -24,7 +24,7 @@ text-align:center;
 margin-bottom:30px;
 }
 .display-section .desc {
-font-family:'굴림';
+font-family:"굴림";
 color:#616161;
 line-height:1.9;
 }
@@ -35,6 +35,23 @@ margin-top:68px;
 .promotion-section .promo-list li {
 margin-top:52px;
 text-align:center;
+}
+.promotion-section .promo-list li:first-child {
+margin-top:-30px;
+}
+.promotion-section .promo-list li img {
+height:52px;
+}
+.promotion-section .promo-list li h3 {
+margin:29px 0 20px 0;
+color:#3f51b5;
+font-weight:normal;
+}
+.promotion-section .promo-list li p {
+font-size:14px;
+font-family:"궁서";
+color:#616161;
+line-height:1.5;
 }
 </style>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -76,7 +93,22 @@ text-align:center;
 			<section class="promotion-section">
 				<div class="container">
 					<ul class="promo-list">
-						<li><a href> <img src="/resources/images/summer.jpg"
+						<li><a href="#"> <img src="/resources/images/summer.jpg"
+								alt="">
+								<h3>HOME</h3>
+								<p>휴면 교육센터 디지털 컨버전스 과정 입니다.</p>
+						</a></li>
+						<li><a href="#"> <img src="/resources/images/summer.jpg"
+								alt="">
+								<h3>HOME</h3>
+								<p>휴면 교육센터 디지털 컨버전스 과정 입니다.</p>
+						</a></li>
+						<li><a href="#"> <img src="/resources/images/summer.jpg"
+								alt="">
+								<h3>HOME</h3>
+								<p>휴면 교육센터 디지털 컨버전스 과정 입니다.</p>
+						</a></li>
+						<li><a href="#"> <img src="/resources/images/summer.jpg"
 								alt="">
 								<h3>HOME</h3>
 								<p>휴면 교육센터 디지털 컨버전스 과정 입니다.</p>
