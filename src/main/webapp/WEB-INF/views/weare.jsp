@@ -8,23 +8,39 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scaleable=no">
-<title>We Are페이지</title>
+<title>HOME</title>
 <link rel="shortcut icon" href="/images/favicon/favicon.ico">
 <link rel="apple-touch-icon-precomposed"
 	href="/images/favicon/home-touch-icon.png">
 <link rel="stylesheet" type="text/css" href="/resources/css/reset.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/common.css">
 <style>
-
+/* WE ARE 페이지 영역 CSS */
+.display-section {
+margin-top:30px;
+text-align:center;
+}
+.display-section .sec-tit {
+margin-bottom:30px;
+}
+.display-section .desc {
+font-family:'굴림';
+color:#616161;
+line-height:1.9;
+}
+/* We Are 내용 영역 CSS */
+.promotion-section {
+margin-top:68px;
+}
+.promotion-section .promo-list li {
+margin-top:52px;
+text-align:center;
+}
 </style>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="/resources/js/common.js"></script>
 <!-- 사용자 스크립트 -->
 <script>
-	$(document).ready(function($) {
-		//alert('jquery잘 되나?');
-		$(".menu-toggle-btn").click(function() {
-			$(".gnb").stop().slideToggle("fast");
-		})
-	})
 </script>
 </head>
 <body>
