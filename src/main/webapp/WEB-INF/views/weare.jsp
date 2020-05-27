@@ -37,7 +37,7 @@ margin-top:52px;
 text-align:center;
 }
 .promotion-section .promo-list li:first-child {
-margin-top:-30px;
+margin-top: 0px;
 }
 .promotion-section .promo-list li img {
 height:52px;
@@ -66,6 +66,12 @@ margin-top:110px;
 .promotion-section .promo-list li {
 float:left; /* 세로로 나열된 컨텐츠를 가로로 배치 하는 역할 */
 width:23.046875%; /* 177px / 768px */ 
+margin-left:2.60416666666667%;
+/* 20px / 768px */
+margin-top:0;
+}
+.promotion-section .promo-list li:first-child {
+margin-left:0;
 }
 
 }
