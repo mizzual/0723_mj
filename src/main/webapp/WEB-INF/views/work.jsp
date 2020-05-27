@@ -60,7 +60,7 @@ opacity:0;
 transition:all 0.3s;
 }
 .work-section .work-list li a:hover .info {
-transform:tanslateY(23px);
+transform:translateY(23px);
 opacity:1;
 }
 .work-section .work-list li .info h3 {
