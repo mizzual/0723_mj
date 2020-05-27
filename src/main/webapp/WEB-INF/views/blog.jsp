@@ -49,7 +49,21 @@ line-height:1.6;
 }
 /* 태블릿용 CSS */
 @media all and (min-width:768px) {
-
+.blog-section {
+margin-top:124px;
+}
+.blog-section .sec-tit {
+margin-bottom:76px;
+}
+.blog-section .blog-list li {
+float:left;
+width:31.59722222222%;
+margin-left:2.60416666666%;
+margin-top:0;
+}
+.blog-section .blog-list li:first-child {
+margin-left:0;
+}
 }
 </style>
 <script src="/resources/js/jquery.min.js"></script>
