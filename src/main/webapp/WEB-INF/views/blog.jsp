@@ -47,6 +47,10 @@ color:#424242;
 font-weight:normal;
 line-height:1.6;
 }
+/* 태블릿용 CSS */
+@media all and (min-width:768px) {
+
+}
 </style>
 <script src="/resources/js/jquery.min.js"></script>
 <script src="/resources/js/common.js"></script>
