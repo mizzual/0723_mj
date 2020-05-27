@@ -40,7 +40,7 @@ text-align:center;
 margin-top: 0px;
 }
 .promotion-section .promo-list li img {
-height:52px;
+height:202px;
 }
 .promotion-section .promo-list li h3 {
 margin:29px 0 20px 0;
@@ -56,6 +56,9 @@ line-height:1.5;
 /* 태블릿용 CSS */
 @media all and (min-width:768px) {
 
+.promotion-section .promo-list li img {
+height:102px;
+}
 .display-section {
 margin-top:95px;
 }
