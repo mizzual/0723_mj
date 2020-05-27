@@ -78,13 +78,13 @@ line-height:1.6;
 			<div class="container">
 				<h2 class="sec-tit">BLOG</h2>
 				<ul class="blog-list">
-					<li><a href="#"><img src="/resources/images/summer.jpg" alt=""></a>
+					<li><a href="#" onclick="return false"><img src="/resources/images/summer.jpg" alt=""></a>
 						<time datetime="2016-10-30">OCT 30, 2016</time> <a href=""><h3>타임스페이스는
 								사용자 중심의 웹페이지를 제작하는 회사 입니다.</h3></a></li>
-					<li><a href="#"><img src="/resources/images/summer.jpg" alt=""></a>
+					<li><a href="#" onclick="return false"><img src="/resources/images/summer.jpg" alt=""></a>
 						<time datetime="2016-10-30">OCT 30, 2016</time> <a href=""><h3>타임스페이스는
 								사용자 중심의 웹페이지를 제작하는 회사 입니다.</h3></a></li>
-					<li><a href="#"><img src="/resources/images/summer.jpg" alt=""></a>
+					<li><a href="#" onclick="return false"><img src="/resources/images/summer.jpg" alt=""></a>
 						<time datetime="2016-10-30">OCT 30, 2016</time> <a href=""><h3>타임스페이스는
 								사용자 중심의 웹페이지를 제작하는 회사 입니다.</h3></a></li>
 				</ul>

@@ -109,7 +109,7 @@ height:auto;
 <h2 class="sec-tit">WORK</h2>
 <ul class="work-list">
 <li>
-<a href="#">
+<a href="#" onclick="return false">
 <div class="info">
 <h3>작업1</h3>
 <span>소스/작업1</span>
@@ -118,7 +118,7 @@ height:auto;
 </a>
 </li>
 <li>
-<a href="#">
+<a href="#" onclick="return false">
 <div class="info">
 <h3>작업1</h3>
 <span>소스/작업1</span>
@@ -127,7 +127,7 @@ height:auto;
 </a>
 </li>
 <li>
-<a href="#">
+<a href="#" onclick="return false">
 <div class="info">
 <h3>작업1</h3>
 <span>소스/작업1</span>
@@ -136,7 +136,7 @@ height:auto;
 </a>
 </li>
 <li>
-<a href="#">
+<a href="#" onclick="return false">
 <div class="info">
 <h3>작업1</h3>
 <span>소스/작업1</span>
@@ -145,7 +145,7 @@ height:auto;
 </a>
 </li>
 <li>
-<a href="#">
+<a href="#" onclick="return false">
 <div class="info">
 <h3>작업1</h3>
 <span>소스/작업1</span>
@@ -154,7 +154,7 @@ height:auto;
 </a>
 </li>
 <li>
-<a href="#">
+<a href="#" onclick="return false">
 <div class="info">
 <h3>작업1</h3>
 <span>소스/작업1</span>
@@ -163,7 +163,7 @@ height:auto;
 </a>
 </li>
 <li>
-<a href="#">
+<a href="#" onclick="return false">
 <div class="info">
 <h3>작업1</h3>
 <span>소스/작업1</span>
@@ -172,7 +172,7 @@ height:auto;
 </a>
 </li>
 <li>
-<a href="#">
+<a href="#" onclick="return false">
 <div class="info">
 <h3>작업1</h3>
 <span>소스/작업1</span>
