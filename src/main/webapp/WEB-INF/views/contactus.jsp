@@ -87,6 +87,24 @@ margin-right:2.6041666666666%;
 margin-bottom:0;
 }
 }
+/* PC용 CONTACT US페이지 CSS */
+@media all and (min-width:1132px) {
+.contact-section .sec-tit {
+float:left;
+margin-bottom:0;
+}
+.contact-section .form-box {
+float:right;
+width:74.5583888888%;
+}
+.contact-section .form-box .form,
+.contact-section .form-box .textarea {
+width:48.815165877777%;
+}
+.contact-section .form-box .form {
+margin-right:2.36966888888%;
+}
+}
 </style>
 <script src="/resources/js/jquery.min.js"></script>
 <script src="/resources/js/common.js"></script>
