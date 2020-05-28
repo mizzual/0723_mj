@@ -65,6 +65,23 @@ margin-top:0;
 margin-left:0;
 }
 }
+
+/* PC용 BLOG영역 CSS */
+@media all and (min-width:1132px) {
+.blog-section .sec-tit {
+float:left;
+margin-bottom:0;
+}
+.blog-section .blog-list {
+float:right;
+width:74.55555555555%;
+}
+.blog-sectoin .blog-list li {
+width:31.7535555555%;
+margin-left:2.36966666666%;
+}
+
+}
 </style>
 <script src="/resources/js/jquery.min.js"></script>
 <script src="/resources/js/common.js"></script>

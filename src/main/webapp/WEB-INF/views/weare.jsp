@@ -103,9 +103,13 @@ top:9px;
 left:0;
 width:2px;
 height:44px;
-background:#e0e0e0;
+background: #4d68ea;
 content:"";
-
+}
+/* PC WE ARE 내용 영역 CSS */
+.promotion-section .promo-list li {
+width:23.674911111%;
+margin-left:1.7667844444%;
 }
 }
 </style>
