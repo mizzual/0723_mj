@@ -20,6 +20,15 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
+	 * 슬라이드 페이지 파일 입니다.
+	 */
+	@RequestMapping(value = "/slide", method = RequestMethod.GET)
+	public String slide(Locale locale, Model model) {
+		
+		return "slide";
+	}
+	
+	/**
 	 * CONTACT US 페이지 파일 입니다.
 	 */
 	@RequestMapping(value = "/contactus", method = RequestMethod.GET)
