@@ -94,7 +94,33 @@
 	padding: 0;
 	list-style: none;
 	}
-	
+	body header .row #gnb,
+	body header .row {
+	position: relative;
+	margin: 0 auto;
+	}
+	body header .row #brand {
+	background: url(/resources/images/logo.png) no-repeat 0% 60%;
+	height: 90px;
+	width: 90px;
+	margin: 0px;
+	text-indent: -10000px;
+	}
+	body header .row #brand:hover {
+	background-color: rgba(0,0,0,0.1)
+	}
+	body header .row #brand:hover:before {
+	top: 35px;
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	transform: rotate(360deg);
+	}
+	body header .row #gnb {
+	position: absolute;
+	top: 35px;
+	right: 0;
+	}
  </style>
     <script src="/resources/js/jquery.min.js"></script>
     <script type="text/javascript">
