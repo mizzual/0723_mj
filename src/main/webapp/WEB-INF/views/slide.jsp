@@ -17,7 +17,7 @@
       min-width:748px;
       margin:0 auto;
       }
-      .col-1, .col-2, .col-3, col-4, col-5, col-6, col-7, col-8, col-9, col-10, col-11 {
+      .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11 {
       float: left;
       margin-right: 3.8%;
       min-height: 1px;
@@ -66,6 +66,18 @@
       padding-right: 20px;
       }
       
+      }
+      .clearfix:after {
+      content:"";
+      display:block;
+      clear: both;
+      }
+      .blind {
+      visiblity: hidden;
+      position: absolute;
+      top: -10000px;
+      height: 1px;
+      width: 1px;
       }
  </style>
  <style>
@@ -120,6 +132,75 @@
 	position: absolute;
 	top: 35px;
 	right: 0;
+	}
+	body header .row #gnb ul {
+	margin: 0;
+	}
+	body header .row #gnb ul li {
+	float: left;
+	margin-right: 30px;
+	}
+	body header .row #gnb ul li:last-child {
+	margin-right: 0;
+	}
+	body header .row #gnb ul li a {
+	font-size: 16px;
+	color: #fff;
+	text-decoration: none;
+	text-shadow: 0 2px #282020;
+	}
+	body header .row #gnb ul li a:hover,
+	body header .row #gnb ul li a:focus {
+	color: #fff;
+	text-shadow: none;
+	font-weight: bold;
+	}
+	body section#contents h2,
+	body section#contents h3 {
+	position: relative;
+	margin-bottom: 40px;
+	border-bottom: 1px solid #e1dcda;
+	padding-bottom: 20px;
+	font-size: 24px;
+	line-height: 34px;
+	color: #21759A;
+	padding: 20px;
+	}
+	body section#contents h2:before,
+	body section#contents h3:before {
+	content: "";
+	position: absolute;
+	width: 34px;
+	height: 1px;
+	background: #21759A;
+	top: -10px;
+	left: -36px;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	}
+	body section#contents li {
+	margin-bottom: 60px;
+	}
+	body section#contents li img {
+	border: 1px solid red;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	}
+	body section#contents li h4,
+	body section#contents li h5 {
+	font-size:22px;
+	}
+	body section#contents li h5 {
+	margin-top: 22px;
+	margin-bottom: 32px;
+	}
+	body section#contents li p {
+	font-size: 14px;
+	line-height: 24px;
+	color: #818181;
 	}
  </style>
     <script src="/resources/js/jquery.min.js"></script>
