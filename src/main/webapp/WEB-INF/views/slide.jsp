@@ -76,6 +76,25 @@
 	font-size:14px; line-height:24px;
 	}
 	body { margin:0px; padding:0px; }
+	body header {
+	background: url(/resources/images/header-bg.jpg) no-repeat 50% 55%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	position:fixed;
+	width:100%;
+	top:0px;
+	height:90px;
+	z-index:999;
+	}
+	body > section {
+	margin-top:90px;
+	}
+	body ul, body ol {
+	padding: 0;
+	list-style: none;
+	}
+	
  </style>
     <script src="/resources/js/jquery.min.js"></script>
     <script type="text/javascript">
