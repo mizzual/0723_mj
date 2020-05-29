@@ -202,6 +202,36 @@
 	line-height: 24px;
 	color: #818181;
 	}
+	body footer {
+	border-top: 1px solid #e2e2e2;
+	padding-top: 20px;
+	}
+	body footer p {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background: url(/resources/images/logo.png) no-repeat 100% 50%;
+	}
+	body footer p small {
+	display: block;
+	line-height: 1.2;
+	}
+	body footer p small a:link,
+	body footer p small a:visited {
+	color: #606060;
+	text-decoration: none;
+	}
+	body footer p small a:hover,
+	body footer p small a:active {
+	color: #212121;
+	}
+	::selection {
+	background-color: #eee7dd;
+	color: #542e1c;
+	}
+	::-moz-selection {
+	background-color: #eee7dd;
+	color: #542e1c;
+	}
  </style>
     <script src="/resources/js/jquery.min.js"></script>
     <script type="text/javascript">
