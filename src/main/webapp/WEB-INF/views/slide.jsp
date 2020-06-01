@@ -333,6 +333,7 @@ body footer p small a:hover, body footer p small a:active {
 	body section#contents {
 		margin-top: 90px;
 	}
+	
 	body header {
 		z-index: 999;
 	}
@@ -351,6 +352,7 @@ body footer p small a:hover, body footer p small a:active {
 		position: absolute;
 		right: 0px;
 	}
+	nav > ul { display: none;}
 	body header .row #gnb {
 		position: static;
 	}
@@ -395,8 +397,39 @@ body footer p small a:hover, body footer p small a:active {
 <script src="/resources/js/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function($) { //j쿼리 시작 : $(document).ready(function(){ }); == $(function(){ }); 과 동일
-
+	//모바일메뉴 로딩시
+	var pull = $('#pull');
+	var menu = $('nav > ul');
+	$(pull).on('click', function(e) {
+		var w = $(window).width();
+		if(w<960) {
+			if(menu.is(':visible')) {
+				menu.slideToggle("fast");
+				return;
+			}
+			if(menu.is(':hidden')) {
+				menu.slideToggle("slow");
+				return;
+			}
+		}
+	});//click 이벤트 끝
+	//모바일 토클에 대한 스타일 -> PC에서는 없앤다.
+	$(window).resize(function() {
+		// alert(); //디버그
+		var w = $(window).width();
+		var menu = $('nav > ul');
+		if(w>960) {
+			menu.removeAttr('style');
+		}else{
+			
+		}
+		return;
 	});
+	
+	
+	
+	});
+	
 </script>
 </head>
 <body>
