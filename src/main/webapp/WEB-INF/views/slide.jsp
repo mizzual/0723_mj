@@ -393,6 +393,9 @@ body footer p small a:hover, body footer p small a:active {
 	}
 }
 .nivo-caption { text-align: center !important; }
+
+.nivoSlider { height:400px !important;}
+.nivoSlider img { height:400px !important; }
 </style>
 <script src="/resources/js/jquery.min.js"></script>
 <script type="text/javascript">
