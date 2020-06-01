@@ -455,9 +455,22 @@ body footer p small a:hover, body footer p small a:active {
 		</div>
 	</header>
 	<!-- e:header-->
+	<script src="/resources/js/jquery.nivo.slider.js"></script>
+ 	<link href="/resources/css/nivo-slider.css" media="screen" rel="stylesheet" type="text/css">
+ 	<script type="text/javascript">
+ 	jQuery(function($) {
+ 		$('#slider').nivoSlider({
+ 			effect: 'slideInLeft',
+ 			
+ 		})
+ 	})
+    </script>
 	<section class="banner_slider">
 		<div id="slider" class="nivoSlider">
-			<img src="/resources/images/summer.jpg" title="슬라이드1" />
+			<img src="/resources/images/slide1.jpg" title="슬라이드1" />
+			<img src="/resources/images/slide2.jpg" title="슬라이드2" />
+			<img src="/resources/images/slide3.jpg" title="슬라이드3" />
+			<img src="/resources/images/slide4.jpg" title="슬라이드4" />
 		</div>
 	</section>
 	<section id="contents" class="row">
