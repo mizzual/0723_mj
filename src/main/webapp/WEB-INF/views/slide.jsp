@@ -461,7 +461,17 @@ body footer p small a:hover, body footer p small a:active {
  	jQuery(function($) {
  		$('#slider').nivoSlider({
  			effect: 'slideInLeft',
- 			
+ 			directionNav: true,
+ 			controlNav: false,
+ 			pauseOnHover: false,
+ 			prevText: '<span style="font-size:30px;color:#fff;padding-left:10px;">&lt;</span>',
+ 			nextText: '<span style="font-size:30px;color:#fff;padding-right:10px;">&gt;</span>',
+ 			});
+ 		$('.nivo-preNav').on('mouseover', function() {
+ 			$('#slider img').attr("slideInRight");
+ 		})
+ 		$('.nivo-nextNav').on('mouseover', function() {
+ 			$('#slider img').attr("slideInLeft");
  		})
  	})
     </script>
