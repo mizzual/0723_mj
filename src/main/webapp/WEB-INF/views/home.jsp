@@ -34,6 +34,8 @@
 <script>
 	
 </script>
+<!-- 부트스트랩 -->
+<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 	<!-- 더미 데이터:CSS작업전 내용 -->
