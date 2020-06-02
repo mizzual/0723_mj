@@ -181,8 +181,8 @@
 						<fieldset class="cfixed">
 							<legend class="blind">CONTACT US</legend>
 							<div class="form">
-								<label for="name" class="blind">name</label> <input type="text"
-									id="name" placeholder="Name"> <label for="phone"
+								<label for="name" class="blind">name</label> 
+								<input type="text" id="name" placeholder="Name"> <label for="phone"
 									class="blind">phone</label> <input type="tel" id="phone"
 									placeholder="Phone"> <label for="email" class="blind">email</label>
 								<input type="email" id="email" placeholder="Email Address">
@@ -217,11 +217,12 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <input class="form-control" type="text" id="message" placeholder="메세지 내용을 입력해 주세요.">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary">수정</button>
+        <button type="button" class="btn btn-secondary">삭제</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">닫기</button>
       </div>
     </div>
   </div>
