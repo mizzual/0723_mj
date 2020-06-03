@@ -528,20 +528,18 @@ top: 50%;
 	      <img src="/resources/images/slide4.jpg" class="d-block w-100" alt="...">
 	    </div>
 	  </div>
-	  <a class="left carousel-control" style="font-size:40px;font-weight:bold;" href="#carouselExampleIndicators" data-slide="prev" onclick="$('#myCarousel').carousel('prev')">
+	  <!-- <a class="left carousel-control" style="font-size:40px;font-weight:bold;" href="#carouselExampleIndicators" data-slide="prev" onclick="$('#myCarousel').carousel('prev')">
 	  <span class="slide_arrow">&lt;</span>
 	  </a>
 	  <a class="right carousel-control" style="font-size:40px;font-weight:bold;" href="#carouselExampleIndicators" data-slide="next" onclick="$('#myCarousel').carousel('next')">
 	  <span class="slide_arrow">&gt;</span>
-	  </a>
-	  <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-	    <span class="sr-only">Previous</span>
-	  </a>
-	  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-	    <span class="sr-only">Next</span>
 	  </a> -->
+	  <a class="left carousel-control" href="#carouselExampleIndicators" role="button" data-slide="prev">
+	    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+	  </a>
+	  <a class="right carousel-control" href="#carouselExampleIndicators" role="button" data-slide="next">
+	    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	  </a>
 	</div>
 	
 	
