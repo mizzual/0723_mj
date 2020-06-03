@@ -400,12 +400,13 @@ body footer p small a:hover, body footer p small a:active {
     margin-right: auto !important;
     margin-left: auto !important;
 }
-.carousel-control {
-    top: 50% !important;
+.item img {
+	height: 600px !important;
+	width: 100% !important;
 }
-.carousel-inner .item img { 
-	height: 400px !important;
-	width: 100% !important; 
+.carousel-control .slide_arrow {
+position: absolute;
+top: 50%;
 }
 </style>
 <script src="/resources/js/jquery.min.js"></script>
@@ -527,11 +528,11 @@ body footer p small a:hover, body footer p small a:active {
 	      <img src="/resources/images/slide4.jpg" class="d-block w-100" alt="...">
 	    </div>
 	  </div>
-	  <a class="left carousel-control" href="#carouselExampleIndicators" data-slide="prev" onclick="$('#myCarousel').carousel('prev')">
-	  <span style="font-size:30px;font-weight:bold;">&lt;</span>
+	  <a class="left carousel-control" style="font-size:40px;font-weight:bold;" href="#carouselExampleIndicators" data-slide="prev" onclick="$('#myCarousel').carousel('prev')">
+	  <span class="slide_arrow">&lt;</span>
 	  </a>
-	  <a class="right carousel-control" href="#carouselExampleIndicators" data-slide="next" onclick="$('#myCarousel').carousel('next')">
-	  <span style="font-size:30px;font-weight:bold">&gt;</span>
+	  <a class="right carousel-control" style="font-size:40px;font-weight:bold;" href="#carouselExampleIndicators" data-slide="next" onclick="$('#myCarousel').carousel('next')">
+	  <span class="slide_arrow">&gt;</span>
 	  </a>
 	  <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
