@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class HelloWorld {
 
-	String name = "김일국";
+	String name = "김일국";//클래스 안 전체에 영향을 가지는 글로벌변수
 	
 	public static void main(String[] args) {
+		String name = "홍길동";//매서드 안에 영향을 가지는 로컬변수
 		boolean run = true;
 		int balance = 0;
 		Scanner scanner = new Scanner(System.in);
