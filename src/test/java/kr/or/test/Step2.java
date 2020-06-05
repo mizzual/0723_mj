@@ -47,6 +47,8 @@ public class Step2 {
 		m3.setName("각시탈");
 		m3.setAge(3);
 		m3.setPhoneNum("333-3333-3333");
+		System.out.println("toString매서드 오버라이딩 샘플 " + m1.toString());
+		
 		/*System.out.println(m1.toString());
 		System.out.println(m2.toString());
 		System.out.println(m3.toString());*/
@@ -59,6 +61,7 @@ public class Step2 {
 		ms.printMembers(members);
 	}
 }
+
 class MemberService {
 	//액션-서비스 클래스 - 출력용 매서드 작성
 	//매개변수로 배열을 받아서 출력하는 형태로 작성
