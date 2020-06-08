@@ -19,9 +19,11 @@ public class HelloWorld {
 		//SnowTire클래스형 변수 snowTire 생성
 		//new 키워드로 SnowTire() 매서드를 이용해서
 		//snowTire인스턴스클래스(메모리공간할당) 실행된 상태(아래)
-		SnowTire snowTire = new SnowTire();//생성자 메서드
+		SnowTire snowTire = new SnowTire();//생성자 메서드 실행
 		Tire tire = snowTire;
-		
+		tire.run();//자식클래스의 run()
+		Tire tire2 = new Tire();
+		tire2.run();//부모클래스의 run()
 		/*
 		boolean run = true;
 		int balance = 0;//은행예금통장금액
