@@ -1,0 +1,10 @@
+[2020-06-18 18:00:26] DEBUG: Log4jTest.java:13 - 디버그!!kr.or.test.MemberVO@7106e68e
+[2020-06-18 18:00:26] INFO : Log4jTest.java:14 - 인포!!
+[2020-06-18 18:00:26] WARN : Log4jTest.java:15 - 워닝!!
+[2020-06-18 18:00:26] ERROR: Log4jTest.java:16 - 에러!!
+[2020-06-18 18:00:26] FATAL: Log4jTest.java:17 - 파탈에러!!
+[2020-06-18 18:03:35] DEBUG: Log4jTest.java:13 - 디버그!!MemberVO [name=홍길동, age=24, phoneNum=null]
+[2020-06-18 18:03:35] INFO : Log4jTest.java:14 - 인포!!
+[2020-06-18 18:03:35] WARN : Log4jTest.java:15 - 워닝!!
+[2020-06-18 18:03:35] ERROR: Log4jTest.java:16 - 에러!!
+[2020-06-18 18:03:35] FATAL: Log4jTest.java:17 - 파탈에러!!
