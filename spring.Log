@@ -1,10 +1,31 @@
-[2020-06-18 18:00:26] DEBUG: Log4jTest.java:13 - 디버그!!kr.or.test.MemberVO@7106e68e
-[2020-06-18 18:00:26] INFO : Log4jTest.java:14 - 인포!!
-[2020-06-18 18:00:26] WARN : Log4jTest.java:15 - 워닝!!
-[2020-06-18 18:00:26] ERROR: Log4jTest.java:16 - 에러!!
-[2020-06-18 18:00:26] FATAL: Log4jTest.java:17 - 파탈에러!!
-[2020-06-18 18:03:35] DEBUG: Log4jTest.java:13 - 디버그!!MemberVO [name=홍길동, age=24, phoneNum=null]
-[2020-06-18 18:03:35] INFO : Log4jTest.java:14 - 인포!!
-[2020-06-18 18:03:35] WARN : Log4jTest.java:15 - 워닝!!
-[2020-06-18 18:03:35] ERROR: Log4jTest.java:16 - 에러!!
-[2020-06-18 18:03:35] FATAL: Log4jTest.java:17 - 파탈에러!!
+[2020-06-17 10:59:54] DEBUG: Log4jTest.java:13 - 디버그!!MemberVO [name=홍길동, age=24, phoneNum=null]
+[2020-06-17 10:59:54] INFO : Log4jTest.java:14 - 인포!!
+[2020-06-17 10:59:54] WARN : Log4jTest.java:15 - 워닝!!
+[2020-06-17 10:59:54] ERROR: Log4jTest.java:16 - 에러!!
+[2020-06-17 10:59:54] FATAL: Log4jTest.java:17 - 파탈에러!!
+[2020-06-19 11:00:30] DEBUG: Log4jTest.java:13 - 디버그!!MemberVO [name=홍길동, age=24, phoneNum=null]
+[2020-06-19 11:00:30] INFO : Log4jTest.java:14 - 인포!!
+[2020-06-19 11:00:30] WARN : Log4jTest.java:15 - 워닝!!
+[2020-06-19 11:00:30] ERROR: Log4jTest.java:16 - 에러!!
+[2020-06-19 11:00:30] FATAL: Log4jTest.java:17 - 파탈에러!!
+[2020-06-19 11:09:35] DEBUG: Log4jTest.java:13 - 디버그!!MemberVO [name=홍길동, age=24, phoneNum=null]
+[2020-06-19 11:09:35] INFO : Log4jTest.java:14 - 인포!!
+[2020-06-19 11:09:35] WARN : Log4jTest.java:15 - 워닝!!
+[2020-06-19 11:09:35] ERROR: Log4jTest.java:16 - 에러!!
+[2020-06-19 11:09:35] FATAL: Log4jTest.java:17 - 파탈에러!!
+[2020-06-19 11:10:38] DEBUG: Log4jTest.java:13 - 디버그!!kr.or.test.MemberVO@7106e68e
+[2020-06-19 11:10:38] INFO : Log4jTest.java:14 - 인포!!
+[2020-06-19 11:10:38] WARN : Log4jTest.java:15 - 워닝!!
+[2020-06-19 11:10:38] ERROR: Log4jTest.java:16 - 에러!!
+[2020-06-19 11:10:38] FATAL: Log4jTest.java:17 - 파탈에러!!
+[2020-06-19 11:12:26] DEBUG: Log4jTest.java:13 - 디버그!!MemberVO [name=홍길동, age=24, phoneNum=null]
+[2020-06-19 11:12:26] INFO : Log4jTest.java:14 - 인포!!
+[2020-06-19 11:12:26] WARN : Log4jTest.java:15 - 워닝!!
+[2020-06-19 11:12:26] ERROR: Log4jTest.java:16 - 에러!!
+[2020-06-19 11:12:26] FATAL: Log4jTest.java:17 - 파탈에러!!
+[2020-06-19 11:28:11] INFO : Log4jTest.java:18 - test라는 메서드를 사용한 PC의 아이피는 : 192.168.56.1
+[2020-06-19 11:28:11] DEBUG: Log4jTest.java:25 - 디버그!!MemberVO [name=홍길동, age=24, phoneNum=null]
+[2020-06-19 11:28:11] INFO : Log4jTest.java:26 - 인포!!
+[2020-06-19 11:28:11] WARN : Log4jTest.java:27 - 워닝!!
+[2020-06-19 11:28:11] ERROR: Log4jTest.java:28 - 에러!!
+[2020-06-19 11:28:11] FATAL: Log4jTest.java:29 - 파탈에러!!
