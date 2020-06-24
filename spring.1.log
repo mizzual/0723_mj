@@ -1,5 +1,6 @@
-2020-06-24 14:26:28,186  INFO [org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory] Starting embedded database: url='jdbc:hsqldb:mem:dataSource', username='sa'
-2020-06-24 14:26:28,440  INFO [org.springframework.jdbc.datasource.init.ScriptUtils] Executing SQL script from class path resource [db/edu_hsql.sql]
-2020-06-24 14:26:28,453  INFO [org.springframework.jdbc.datasource.init.ScriptUtils] Executed SQL script from class path resource [db/edu_hsql.sql] in 13 ms.
-2020-06-24 14:26:28,509  INFO [org.springframework.web.context.support.GenericWebApplicationContext] Closing org.springframework.web.context.support.GenericWebApplicationContext@cd2dae5: startup date [Wed Jun 24 14:26:27 KST 2020]; root of context hierarchy
-2020-06-24 14:26:28,510  INFO [org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory] Shutting down embedded database: url='jdbc:hsqldb:mem:dataSource'
+2020-06-24 17:10:16,757  INFO [org.springframework.web.servlet.handler.SimpleUrlHandlerMapping] Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2020-06-24 17:10:16,825  INFO [org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory] Starting embedded database: url='jdbc:hsqldb:mem:dataSource', username='sa'
+2020-06-24 17:10:17,062  INFO [org.springframework.jdbc.datasource.init.ScriptUtils] Executing SQL script from class path resource [db/edu_hsql.sql]
+2020-06-24 17:10:17,074  INFO [org.springframework.jdbc.datasource.init.ScriptUtils] Executed SQL script from class path resource [db/edu_hsql.sql] in 11 ms.
+2020-06-24 17:10:17,276  INFO [org.springframework.web.context.support.GenericWebApplicationContext] Closing org.springframework.web.context.support.GenericWebApplicationContext@4973813a: startup date [Wed Jun 24 17:10:16 KST 2020]; root of context hierarchy
+2020-06-24 17:10:17,278  INFO [org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory] Shutting down embedded database: url='jdbc:hsqldb:mem:dataSource'
