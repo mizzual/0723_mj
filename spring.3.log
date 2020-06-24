@@ -1,12 +1,4 @@
-2020-06-22 10:42:03,716  INFO [kr.or.test.Log4jTest] 인포!!
-2020-06-22 10:42:03,717  WARN [kr.or.test.Log4jTest] 워닝!!
-2020-06-22 10:42:03,717 ERROR [kr.or.test.Log4jTest] 에러!!
-2020-06-22 10:42:03,718 FATAL [kr.or.test.Log4jTest] 파탈에러!!
-2020-06-22 10:42:16,719  WARN [org.apache.log4j.joran.action.PriorityAction] Priority element has been deprecated, please use <level> instead.
-2020-06-22 10:42:16,732  INFO [kr.or.test.Log4jTest] test라는 메서드를 사용한 PC의 아이피는 : 192.168.56.1
-2020-06-22 10:42:16,732 DEBUG [kr.or.test.Log4jTest] 디버그!!MemberVO [name=홍길동, age=24, phoneNum=null]
-2020-06-22 10:42:16,732  INFO [kr.or.test.Log4jTest] 인포!!
-2020-06-22 10:42:16,732  WARN [kr.or.test.Log4jTest] 워닝!!
-2020-06-22 10:42:16,732 ERROR [kr.or.test.Log4jTest] 에러!!
-2020-06-22 10:42:16,732 FATAL [kr.or.test.Log4jTest] 파탈에러!!
-2020-06-22 10:42:30,407  WARN [org.apache.log4j.joran.action.PriorityAction] Priority element has been deprecated, please use <level> instead.
+2020-06-24 14:26:27,969  INFO [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[/sample/slide],methods=[GET]}" onto public java.lang.String org.edu.controller.HomeController.slide(java.util.Locale,org.springframework.ui.Model)
+2020-06-24 14:26:27,971  INFO [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[/sample/blog],methods=[GET]}" onto public java.lang.String org.edu.controller.HomeController.blog(java.util.Locale,org.springframework.ui.Model)
+2020-06-24 14:26:27,972  INFO [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[/sample/weare],methods=[GET]}" onto public java.lang.String org.edu.controller.HomeController.weare(java.util.Locale,org.springframework.ui.Model)
+2020-06-24 14:26:27,973  INFO [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] Mapped "{[/sample/htmltest],methods=[GET]}" onto public java.lang.String org.edu.controller.HomeController.htmltest(java.util.Locale,org.springframework.ui.Model)
