@@ -20,26 +20,22 @@ public class BoardServiceImpl implements IF_BoardService {
 
 	@Override
 	public void insertBoard(BoardVO boardVO) throws Exception {
-		// TODO Auto-generated method stub
-		
+		boardDAO.insertBoard(boardVO);
 	}
 
 	@Override
 	public List<BoardVO> selectBoard() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return boardDAO.selectBoard();
 	}
 
 	@Override
 	public void updateBoard(BoardVO boardVO) throws Exception {
-		// TODO Auto-generated method stub
-		
+		boardDAO.updateBoard(boardVO);
 	}
 
 	@Override
 	public void deleteBoard(Integer bno) throws Exception {
-		// TODO Auto-generated method stub
-		
+		boardDAO.deleteBoard(bno);
 	}
 	
 	

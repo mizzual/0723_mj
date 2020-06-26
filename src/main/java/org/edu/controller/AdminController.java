@@ -5,7 +5,9 @@ import java.util.Locale;
 
 import javax.inject.Inject;
 
+import org.edu.service.IF_BoardService;
 import org.edu.service.IF_MemberService;
+import org.edu.vo.BoardVO;
 import org.edu.vo.MemberVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,14 +18,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AdminController {
 	
 	@Inject
+	private IF_BoardService boardService;
+	
+	@Inject
 	private IF_MemberService memberService;
 	
 	/**
 	 * 게시물관리 리스트 입니다.
+	 * @throws Exception 
 	 */
 	@RequestMapping(value = "/admin/board/list", method = RequestMethod.GET)
-	public String boardList(Locale locale, Model model) {
-		
+	public String boardList(Locale locale, Model model) throws Exception {
+		List<BoardVO> list = boardService.selectBoard();
+		//모델클래스로 jsp화면으로 boardService에서 셀렉트한 list값을 boardList변수명으로 보낸다.
+		//model { list -> boardList -> jsp }
+		model.addAttribute("boardList", list);
 		return "admin/board/list";
 	}
 	
