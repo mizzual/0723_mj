@@ -33,7 +33,7 @@ public class AdminController {
 		//모델클래스로 jsp화면으로 boardService에서 셀렉트한 list값을 boardList변수명으로 보낸다.
 		//model { list -> boardList -> jsp }
 		model.addAttribute("boardList", list);
-		return "admin/board/list";
+		return "admin/board/board_list";
 	}
 	
 	/**
@@ -46,7 +46,17 @@ public class AdminController {
 		//모델클래스로 jsp화면으로 memberService에서 셀렉트한 list값을 memberList변수명으로 보낸다.
 		//model { list -> memberList -> jsp }
 		model.addAttribute("memberList", list);
-		return "admin/member/list";
+		return "admin/member/member_list";
+	}
+	
+	/**
+	 * 회원관리 상세보기 입니다.
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/admin/member/view", method = RequestMethod.GET)
+	public String memberView(Locale locale, Model model) throws Exception {
+		
+		return "admin/member/member_view";
 	}
 	
 	/**
