@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AdminController {
@@ -54,8 +55,9 @@ public class AdminController {
 	 * @throws Exception 
 	 */
 	@RequestMapping(value = "/admin/member/view", method = RequestMethod.GET)
-	public String memberView(Locale locale, Model model) throws Exception {
-		
+	public String memberView(@RequestParam("user_id") String user_id, Locale locale, Model model) throws Exception {
+		MemberVO memberVO = memberService.viewMember(user_id);
+		model.addAttribute("memberVO", memberVO);
 		return "admin/member/member_view";
 	}
 	
