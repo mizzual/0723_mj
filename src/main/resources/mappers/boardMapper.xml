@@ -37,5 +37,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deleteBoard">
 		delete from tbl_board where bno = #{bno}
 	</delete>
+	<select id="viewBoard" resultType="org.edu.vo.BoardVO">
+		select * from tbl_board where bno = #{bno}
+	</select>
 
 </mapper>

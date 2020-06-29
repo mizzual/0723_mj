@@ -36,6 +36,16 @@ public class AdminController {
 		model.addAttribute("boardList", list);
 		return "admin/board/board_list";
 	}
+	/**
+	 * 게시물관리 상세보기 입니다.
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/admin/board/view", method = RequestMethod.GET)
+	public String boardView(@RequestParam("bno") Integer bno,Locale locale, Model model) throws Exception {
+		BoardVO boardVO = boardService.viewBoard(bno);
+		model.addAttribute("boardVO", boardVO);
+		return "admin/board/board_view";
+	}
 	
 	/**
 	 * 회원관리 리스트 입니다.
