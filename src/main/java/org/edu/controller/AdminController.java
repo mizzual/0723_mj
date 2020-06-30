@@ -49,6 +49,22 @@ public class AdminController {
 	}
 	
 	/**
+	 * 게시물관리 > 등록 입니다.
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/admin/board/write", method = RequestMethod.GET)
+	public String boardWrite(Locale locale, Model model) throws Exception {
+		
+		return "admin/board/board_write";
+	}
+	@RequestMapping(value = "/admin/board/write", method = RequestMethod.POST)
+	public String boardWrite(BoardVO boardVO,Locale locale, Model model) throws Exception {
+		boardService.insertBoard(boardVO);
+		return "redirect:/admin/board/list";
+	}
+	
+	
+	/**
 	 * 회원관리 리스트 입니다.
 	 * @throws Exception 
 	 */

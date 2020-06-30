@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="../include/header.jsp" %>
-
 <!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
@@ -28,59 +27,62 @@
 					<!-- general form elements disabled -->
 					<div class="card card-warning">
 						<div class="card-header">
-							<h3 class="card-title">READ Member</h3>
+							<h3 class="card-title">CREATE BOARD</h3>
 						</div>
 						<!-- /.card-header -->
 						<div class="card-body">
-							<form role="form">
+							<form role="form" action="/admin/board/write" method="post">
 								<div class="row">
 									<div class="col-sm-12">
 										<!-- text input -->
 										<div class="form-group">
-											<label>user_id</label> <br> ${memberVO.user_id}
+											<label>Title</label> 
+											<input name="title" type="text" class="form-control"
+												placeholder="Enter Title">
 										</div>
 									</div>
-
 									<div class="col-sm-12">
-										<!-- text input -->
 										<div class="form-group">
-											<label>user_name</label> <br> ${memberVO.user_name}
+											<label>Content</label> 
+											<textarea name="content" class="form-control" rows="3"
+												placeholder="Enter Writer"></textarea>
 										</div>
 									</div>
-
-									<div class="col-sm-12">
-										<!-- text input -->
-										<div class="form-group">
-											<label>email</label> <br> ${memberVO.email}
-										</div>
-									</div>
-
-									<div class="col-sm-12">
-										<!-- text input -->
-										<div class="form-group">
-											<label>point</label> <br> ${memberVO.point}
-										</div>
-									</div>
-										<div class="col-sm-12">
-										<div class="form-group">
-											<label>enabled</label> <br> ${memberVO.enabled}
-										</div>
-									</div>
-										<div class="col-sm-12">
-										<!-- text input -->
-										<div class="form-group">
-											<label>level</label> <br> ${memberVO.levels}
-										</div>
-									</div>
-									<div class="form-group">
-                       </div>
-                     <div class = "buttons">
-									<button type="submit" class="btn btn-warning">UPDATE</button>
-									<button type="submit" class="btn btn-danger">DELETE</button>
-									<a href="/admin/member/list" class="btn btn-primary">LIST ALL</a>
 								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<!-- textarea -->
+										<div class="form-group">
+											<label>Writer</label>
+											<input name="writer" type="text"
+												class="form-control" placeholder="Enter ...">
+										</div>
+									</div>
+
+
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>아래 영역에 파일을 드래그 해서 업로드 가능</label>
+											<div class="col-sm-12">
+												<!-- textarea -->
+												<div class="form-group">
+													<textarea class="form-control" rows="3" disabled=""></textarea>
+												</div>
+											</div>
+											<div class="custom-file">
+												<tr>
+													<td>아래 기존 파일 업로드 창 사용가능</td>
+													<br>
+													<td><input type="file" value="파일 선택" name="file" /></td>
+												</tr>
+											</div>
+										</div>
+										<div class="buttons">
+											<button type="submit" class="btn btn-warning">Submit</button>
+											<a href="/admin/board/list" class="btn btn-primary">LIST ALL</a>
+										</div>
+									</div>
 								</div>
-								
 							</form>
 						</div>
 						<!-- /.content-header -->
@@ -93,6 +95,5 @@
 				</div>
 			</div>
 		</div>
-		<!-- ./Contents Wrap -->
-
+		<!-- ./Content Wrapper -->
 <%@ include file="../include/footer.jsp" %> 
