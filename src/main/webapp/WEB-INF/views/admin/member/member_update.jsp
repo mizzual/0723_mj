@@ -28,7 +28,7 @@
 					<!-- general form elements disabled -->
 					<div class="card card-warning">
 						<div class="card-header">
-							<h3 class="card-title">회원등록</h3>
+							<h3 class="card-title">회원수정</h3>
 						</div>
 						<!-- /.card-header -->
 						<div class="card-body">

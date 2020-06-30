@@ -63,6 +63,23 @@ public class AdminController {
 		return "redirect:/admin/board/list";
 	}
 	
+	/**
+	 * 게시물관리 > 수정 입니다.
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/admin/board/update", method = RequestMethod.GET)
+	public String boardUpdate(@RequestParam("bno") Integer bno, Locale locale, Model model) throws Exception {
+		BoardVO boardVO = boardService.viewBoard(bno);
+		model.addAttribute("boardVO", boardVO);
+		return "admin/board/board_update";
+	}
+	@RequestMapping(value = "/admin/board/update", method = RequestMethod.POST)
+	public String boardUpdate(BoardVO boardVO,Locale locale, RedirectAttributes rdat) throws Exception {
+		boardService.updateBoard(boardVO);
+		rdat.addFlashAttribute("msg", "success");
+		return "redirect:/admin/board/view?bno=" + boardVO.getBno();
+	}
+	
 	
 	/**
 	 * 회원관리 리스트 입니다.
@@ -101,6 +118,23 @@ public class AdminController {
 	public String memberWrite(MemberVO memberVO, Locale locale, RedirectAttributes rdat) throws Exception {
 		memberService.insertMember(memberVO);
 		return "redirect:/admin/member/list";
+	}
+	
+	/**
+	 * 회원관리 > 수정 입니다.
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/admin/member/update", method = RequestMethod.GET)
+	public String memberUpdate(@RequestParam("user_id") String user_id, Locale locale, Model model) throws Exception {
+		MemberVO memberVO = memberService.viewMember(user_id);
+		model.addAttribute("memberVO", memberVO);
+		return "admin/member/member_update";
+	}
+	@RequestMapping(value = "/admin/member/update", method = RequestMethod.POST)
+	public String memberUpdate(MemberVO memberVO, Locale locale, RedirectAttributes rdat) throws Exception {
+		memberService.updateMember(memberVO);
+		rdat.addFlashAttribute("msg", "success");
+		return "redirect:/admin/member/view?user_id=" + memberVO.getUser_id();
 	}
 	
 	/**
