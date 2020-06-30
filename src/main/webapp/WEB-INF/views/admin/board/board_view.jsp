@@ -44,7 +44,9 @@
 										<!-- text input -->
 										<div class="form-group">
 											<label>Content</label>
-											 <br> ${boardVO.content}
+											 <br>
+											 <textarea name="content" class="form-control" rows="3"
+												placeholder="Enter Writer">${boardVO.content}</textarea>
 										</div>
 									</div>
 
