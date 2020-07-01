@@ -58,8 +58,9 @@ public class AdminController {
 		return "admin/board/board_write";
 	}
 	@RequestMapping(value = "/admin/board/write", method = RequestMethod.POST)
-	public String boardWrite(BoardVO boardVO,Locale locale, Model model) throws Exception {
+	public String boardWrite(BoardVO boardVO,Locale locale, RedirectAttributes rdat) throws Exception {
 		boardService.insertBoard(boardVO);
+		rdat.addFlashAttribute("msg", "입력");
 		return "redirect:/admin/board/list";
 	}
 	
@@ -76,8 +77,19 @@ public class AdminController {
 	@RequestMapping(value = "/admin/board/update", method = RequestMethod.POST)
 	public String boardUpdate(BoardVO boardVO,Locale locale, RedirectAttributes rdat) throws Exception {
 		boardService.updateBoard(boardVO);
-		rdat.addFlashAttribute("msg", "success");
+		rdat.addFlashAttribute("msg", "수정");
 		return "redirect:/admin/board/view?bno=" + boardVO.getBno();
+	}
+	
+	/**
+	 * 게시물관리 > 삭제 입니다.
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/admin/board/delete", method = RequestMethod.POST)
+	public String boardDelete(@RequestParam("bno") Integer bno, Locale locale, RedirectAttributes rdat) throws Exception {
+		boardService.deleteBoard(bno);
+		rdat.addFlashAttribute("msg", "삭제");
+		return "redirect:/admin/board/list";
 	}
 	
 	
@@ -117,6 +129,7 @@ public class AdminController {
 	@RequestMapping(value = "/admin/member/write", method = RequestMethod.POST)
 	public String memberWrite(MemberVO memberVO, Locale locale, RedirectAttributes rdat) throws Exception {
 		memberService.insertMember(memberVO);
+		rdat.addFlashAttribute("msg", "입력");
 		return "redirect:/admin/member/list";
 	}
 	
@@ -133,8 +146,19 @@ public class AdminController {
 	@RequestMapping(value = "/admin/member/update", method = RequestMethod.POST)
 	public String memberUpdate(MemberVO memberVO, Locale locale, RedirectAttributes rdat) throws Exception {
 		memberService.updateMember(memberVO);
-		rdat.addFlashAttribute("msg", "success");
+		rdat.addFlashAttribute("msg", "수정");
 		return "redirect:/admin/member/view?user_id=" + memberVO.getUser_id();
+	}
+	
+	/**
+	 * 회원관리 > 삭제 입니다.
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/admin/member/delete", method = RequestMethod.POST)
+	public String memberDelete(@RequestParam("user_id") String user_id, Locale locale, RedirectAttributes rdat) throws Exception {
+		memberService.deleteMember(user_id);
+		rdat.addFlashAttribute("msg", "삭제");
+		return "redirect:/admin/member/list";
 	}
 	
 	/**
