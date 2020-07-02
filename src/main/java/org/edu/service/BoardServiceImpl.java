@@ -41,8 +41,10 @@ public class BoardServiceImpl implements IF_BoardService {
 		boardDAO.updateBoard(boardVO);
 	}
 
+	@Transactional
 	@Override
 	public void deleteBoard(Integer bno) throws Exception {
+		boardDAO.deleteAttach(bno);
 		boardDAO.deleteBoard(bno);
 	}
 
@@ -52,7 +54,7 @@ public class BoardServiceImpl implements IF_BoardService {
 	}
 
 	@Override
-	public String selectAttach(Integer bno) throws Exception {
+	public List<String> selectAttach(Integer bno) throws Exception {
 		return boardDAO.selectAttach(bno);
 	}
 
