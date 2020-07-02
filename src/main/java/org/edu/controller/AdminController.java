@@ -1,8 +1,11 @@
 package org.edu.controller;
 
+import java.io.File;
 import java.util.List;
 import java.util.Locale;
+import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 
 import org.edu.service.IF_BoardService;
@@ -11,9 +14,11 @@ import org.edu.vo.BoardVO;
 import org.edu.vo.MemberVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -24,6 +29,9 @@ public class AdminController {
 	
 	@Inject
 	private IF_MemberService memberService;
+	//첨부파일 업로드 경로 변수값으로 가져옴 servlet-context.xml
+	@Resource(name="uploadPath")
+	private String uploadPath;
 	
 	/**
 	 * 게시물관리 리스트 입니다.
@@ -58,7 +66,18 @@ public class AdminController {
 		return "admin/board/board_write";
 	}
 	@RequestMapping(value = "/admin/board/write", method = RequestMethod.POST)
-	public String boardWrite(BoardVO boardVO,Locale locale, RedirectAttributes rdat) throws Exception {
+	public String boardWrite(MultipartFile file,BoardVO boardVO,Locale locale, RedirectAttributes rdat) throws Exception {
+		String originalName = file.getOriginalFilename();//jsp에서 전송받은 파일의 이름 가져옴
+		UUID uid = UUID.randomUUID();//랜덤문자 구하기
+		String saveName = uid.toString() + "." + originalName.split("\\.")[1];//한글 파일명 처리 때문에...
+		String[] files = new String[] {saveName};//형변환
+		boardVO.setFiles(files);
+		
+		//이 위는 DB에 첨부파일명을 저장하기 까지
+		//이 아래 부터 실제 파일을 폴더에 저장하기 시작
+		byte[] fileData = file.getBytes();
+		File target = new File(uploadPath, saveName);
+		FileCopyUtils.copy(fileData, target);
 		boardService.insertBoard(boardVO);
 		rdat.addFlashAttribute("msg", "입력");
 		return "redirect:/admin/board/list";
