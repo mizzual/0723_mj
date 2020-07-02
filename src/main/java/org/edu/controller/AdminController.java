@@ -52,6 +52,16 @@ public class AdminController {
 	@RequestMapping(value = "/admin/board/view", method = RequestMethod.GET)
 	public String boardView(@RequestParam("bno") Integer bno,Locale locale, Model model) throws Exception {
 		BoardVO boardVO = boardService.viewBoard(bno);
+		//여기서 부터 첨부파일명 때문에 추가
+		String files = boardService.selectAttach(bno);
+		/*String[] filenames = {};
+		for(String fileName : files) {
+			filenames = new String[] {fileName};//형변환
+		}*/
+		//여러개 파일에서 1개 파일만 받는 것으로 변경
+		String[] filenames = new String[] {files};
+		boardVO.setFiles(filenames);//String[]
+		//여기까지 첨부파일때문에 추가
 		model.addAttribute("boardVO", boardVO);
 		return "admin/board/board_view";
 	}
@@ -72,13 +82,13 @@ public class AdminController {
 		String saveName = uid.toString() + "." + originalName.split("\\.")[1];//한글 파일명 처리 때문에...
 		String[] files = new String[] {saveName};//형변환
 		boardVO.setFiles(files);
-		
+		boardService.insertBoard(boardVO);
 		//이 위는 DB에 첨부파일명을 저장하기 까지
 		//이 아래 부터 실제 파일을 폴더에 저장하기 시작
 		byte[] fileData = file.getBytes();
 		File target = new File(uploadPath, saveName);
 		FileCopyUtils.copy(fileData, target);
-		boardService.insertBoard(boardVO);
+		
 		rdat.addFlashAttribute("msg", "입력");
 		return "redirect:/admin/board/list";
 	}
