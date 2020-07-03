@@ -1,6 +1,7 @@
 package org.edu.controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -47,6 +48,20 @@ public class AdminController {
 		response.setContentType("application/download; utf-8");
 		response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
 		return new FileSystemResource(file);
+	}
+	/**
+	 * 파일 업로드 메서드(공통)
+	 * @throws IOException 
+	 */
+	public String[] fileUpload(MultipartFile file) throws IOException {
+		String originalName = file.getOriginalFilename();//jsp에서 전송받은 파일의 이름 가져옴
+		UUID uid = UUID.randomUUID();//랜덤문자 구하기
+		String saveName = uid.toString() + "." + originalName.split("\\.")[1];//한글 파일명 처리 때문에...
+		String[] files = new String[] {saveName};//형변환
+		byte[] fileData = file.getBytes();
+		File target = new File(uploadPath, saveName);
+		FileCopyUtils.copy(fileData, target);
+		return files;
 	}
 	
 	/**
@@ -99,18 +114,9 @@ public class AdminController {
 			//첨부파일 없이 저장
 			boardService.insertBoard(boardVO);
 		}else {
-			String originalName = file.getOriginalFilename();//jsp에서 전송받은 파일의 이름 가져옴
-			UUID uid = UUID.randomUUID();//랜덤문자 구하기
-			String saveName = uid.toString() + "." + originalName.split("\\.")[1];//한글 파일명 처리 때문에...
-			String[] files = new String[] {saveName};//형변환
+			String[] files = fileUpload(file);
 			boardVO.setFiles(files);
-			boardService.insertBoard(boardVO);
-			//이 위는 DB에 첨부파일명을 저장하기 까지
-			//이 아래 부터 실제 파일을 폴더에 저장하기 시작
-			byte[] fileData = file.getBytes();
-			File target = new File(uploadPath, saveName);
-			FileCopyUtils.copy(fileData, target);
-			
+			boardService.insertBoard(boardVO);			
 		}
 		rdat.addFlashAttribute("msg", "입력");
 		return "redirect:/admin/board/list";
@@ -127,7 +133,7 @@ public class AdminController {
 		return "admin/board/board_update";
 	}
 	@RequestMapping(value = "/admin/board/update", method = RequestMethod.POST)
-	public String boardUpdate(BoardVO boardVO,Locale locale, RedirectAttributes rdat) throws Exception {
+	public String boardUpdate(MultipartFile file,BoardVO boardVO,Locale locale, RedirectAttributes rdat) throws Exception {
 		boardService.updateBoard(boardVO);
 		rdat.addFlashAttribute("msg", "수정");
 		return "redirect:/admin/board/view?bno=" + boardVO.getBno();
