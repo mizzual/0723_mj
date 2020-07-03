@@ -134,13 +134,12 @@ public class AdminController {
 	}
 	@RequestMapping(value = "/admin/board/update", method = RequestMethod.POST)
 	public String boardUpdate(MultipartFile file,BoardVO boardVO,Locale locale, RedirectAttributes rdat) throws Exception {
-		if(file.getOriginalFilename() == "") {
+		if(file.getOriginalFilename() == "") {//조건:첨부파일 전송 값이 없다면
 			boardService.updateBoard(boardVO);
 		}else {
 			//이전 첨부파일 삭제처리(아래)
 			List<String> delFiles = boardService.selectAttach(boardVO.getBno());
-			String[] filenames = new String[delFiles.size()];//삭제할 파일명 뽑아오기
-			for(String fileName : filenames) {
+			for(String fileName : delFiles) {
 				//삭제 명령문 추가(아래)
 				File target = new File(uploadPath, fileName);
 				if(target.exists()) {
