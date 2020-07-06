@@ -85,12 +85,20 @@
            <td>
           <nav aria-label="Contacts Page Navigation">
           	<ul class="pagination" style="position:relative;left:40%;">
-                <li class="page-item"><a href="#" class="page-link">«</a></li>
-                <li class="page-item"><a href="#" class="page-link">1</a></li>
-                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                <li class="page-item"><a href="#" class="page-link">3</a></li>
-                <li class="page-item"><a href="#" class="page-link">»</a></li>
-             </ul>  
+          	<c:if test="${pageList.prev}">
+       		<li class="page-item">
+          		<a class="page-link" href="/admin/board/list?page=${pageList.startPage-1}">이전</a>
+       		</li>
+          	</c:if>
+          	<c:forEach begin="${pageList.startPage}" end="${pageList.endPage}" var="idx">
+          		<li class='page-item <c:out value="${idx==pageList.page?'active':''}"/>'><a href="/admin/board/list?page=${idx}" class="page-link">${idx}</a></li>
+          	</c:forEach>
+          	<c:if test="${pageList.next}">
+       		<li class="page-item">
+          		<a class="page-link" href="/admin/board/list?page=${pageList.endPage+1}">다음</a>
+       		</li>
+          	</c:if>
+            </ul>  
           </nav>
                </td>
                 </table>

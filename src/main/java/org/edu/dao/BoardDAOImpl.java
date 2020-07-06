@@ -67,5 +67,10 @@ public class BoardDAOImpl implements IF_BoardDAO {
 		sqlSession.insert(mapperQuery + ".updateAttach", paramMap);
 	}
 
+	@Override
+	public int countBno() throws Exception {
+		return sqlSession.selectOne(mapperQuery + ".countBno");
+	}
+
 	
 }
