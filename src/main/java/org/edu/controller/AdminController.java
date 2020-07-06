@@ -136,21 +136,21 @@ public class AdminController {
 	public String boardUpdate(MultipartFile file,BoardVO boardVO,Locale locale, RedirectAttributes rdat) throws Exception {
 		if(file.getOriginalFilename() == "") {//조건:첨부파일 전송 값이 없다면
 			boardService.updateBoard(boardVO);
-		}else {
-			//이전 첨부파일 삭제처리(아래)
+		} else {
+			//기존등록된 첨부파일 삭제처리(아래)
 			List<String> delFiles = boardService.selectAttach(boardVO.getBno());
 			for(String fileName : delFiles) {
-				//삭제 명령문 추가(아래)
+				//실제파일 삭제
 				File target = new File(uploadPath, fileName);
-				if(target.exists()) {
-					target.delete();
-				}
-			}
-			//아래에서 부터 신규 파일 업로드
-			String[] files = fileUpload(file);			
-			boardVO.setFiles(files);
+				if(target.exists()) { //조건:해당경로에 파일명이 존재하면
+					target.delete();  //파일삭제
+				}//End if
+			}//End for
+			//아래 신규파일 업로드
+			String[] files = fileUpload(file);//실제파일업로드후 파일명 리턴
+			boardVO.setFiles(files);//데이터베이스 <-> VO(get,set) <-> DAO클래스
 			boardService.updateBoard(boardVO);
-		}
+		}//End if
 		
 		
 		rdat.addFlashAttribute("msg", "수정");
