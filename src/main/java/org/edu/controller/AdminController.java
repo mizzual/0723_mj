@@ -82,7 +82,7 @@ public class AdminController {
 		//모델클래스로 jsp화면으로 boardService에서 셀렉트한 list값을 boardList변수명으로 보낸다.
 		//model { list -> boardList -> jsp }
 		model.addAttribute("boardList", list);
-		model.addAttribute("pageList", pageVO);
+		model.addAttribute("pageVO", pageVO);
 		return "admin/board/board_list";
 	}
 	/**
@@ -90,7 +90,7 @@ public class AdminController {
 	 * @throws Exception 
 	 */
 	@RequestMapping(value = "/admin/board/view", method = RequestMethod.GET)
-	public String boardView(@RequestParam("bno") Integer bno,Locale locale, Model model) throws Exception {
+	public String boardView(@ModelAttribute("pageVO") PageVO pageVO, @RequestParam("bno") Integer bno,Locale locale, Model model) throws Exception {
 		BoardVO boardVO = boardService.viewBoard(bno);
 		//여기서 부터 첨부파일명 때문에 추가
 		List<String> files = boardService.selectAttach(bno);
@@ -104,6 +104,7 @@ public class AdminController {
 		boardVO.setFiles(filenames);//String[]
 		//여기까지 첨부파일때문에 추가
 		model.addAttribute("boardVO", boardVO);
+		model.addAttribute("pageVO", pageVO);
 		return "admin/board/board_view";
 	}
 	
@@ -136,13 +137,14 @@ public class AdminController {
 	 * @throws Exception 
 	 */
 	@RequestMapping(value = "/admin/board/update", method = RequestMethod.GET)
-	public String boardUpdate(@RequestParam("bno") Integer bno, Locale locale, Model model) throws Exception {
+	public String boardUpdate(@ModelAttribute("pageVO") PageVO pageVO, @RequestParam("bno") Integer bno, Locale locale, Model model) throws Exception {
 		BoardVO boardVO = boardService.viewBoard(bno);
 		model.addAttribute("boardVO", boardVO);
+		model.addAttribute("pageVO", pageVO);
 		return "admin/board/board_update";
 	}
 	@RequestMapping(value = "/admin/board/update", method = RequestMethod.POST)
-	public String boardUpdate(MultipartFile file,BoardVO boardVO,Locale locale, RedirectAttributes rdat) throws Exception {
+	public String boardUpdate(@ModelAttribute("pageVO") PageVO pageVO, MultipartFile file,BoardVO boardVO,Locale locale, RedirectAttributes rdat) throws Exception {
 		if(file.getOriginalFilename() == "") {//조건:첨부파일 전송 값이 없다면
 			boardService.updateBoard(boardVO);
 		} else {
@@ -163,7 +165,7 @@ public class AdminController {
 		
 		
 		rdat.addFlashAttribute("msg", "수정");
-		return "redirect:/admin/board/view?bno=" + boardVO.getBno();
+		return "redirect:/admin/board/view?bno=" + boardVO.getBno() + "&page=" + pageVO.getPage();
 	}
 	
 	/**
