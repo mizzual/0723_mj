@@ -198,11 +198,17 @@ public class AdminController {
 	 * @throws Exception 
 	 */
 	@RequestMapping(value = "/admin/member/list", method = RequestMethod.GET)
-	public String memberList(Locale locale, Model model) throws Exception {
-		List<MemberVO> list = memberService.selectMember();
+	public String memberList(@ModelAttribute("pageVO") PageVO pageVO, Locale locale, Model model) throws Exception {
+		if(pageVO.getPage() == null) {
+			pageVO.setPage(1);
+		}
+		pageVO.setPerPageNum(10);
+		pageVO.setTotalCount(memberService.countUserId(pageVO));
+		List<MemberVO> list = memberService.selectMember(pageVO);
 		//모델클래스로 jsp화면으로 memberService에서 셀렉트한 list값을 memberList변수명으로 보낸다.
 		//model { list -> memberList -> jsp }
 		model.addAttribute("memberList", list);
+		model.addAttribute("pageVO", pageVO);
 		return "admin/member/member_list";
 	}
 	
