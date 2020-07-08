@@ -217,8 +217,9 @@ public class AdminController {
 	 * @throws Exception 
 	 */
 	@RequestMapping(value = "/admin/member/view", method = RequestMethod.GET)
-	public String memberView(@RequestParam("user_id") String user_id, Locale locale, Model model) throws Exception {
+	public String memberView(@ModelAttribute("pageVO") PageVO pageVO, @RequestParam("user_id") String user_id, Locale locale, Model model) throws Exception {
 		MemberVO memberVO = memberService.viewMember(user_id);
+		model.addAttribute("pageVO", pageVO);
 		model.addAttribute("memberVO", memberVO);
 		return "admin/member/member_view";
 	}
@@ -233,7 +234,7 @@ public class AdminController {
 		return "admin/member/member_write";
 	}
 	@RequestMapping(value = "/admin/member/write", method = RequestMethod.POST)
-	public String memberWrite(MemberVO memberVO, Locale locale, RedirectAttributes rdat) throws Exception {
+	public String memberWrite(@Valid MemberVO memberVO, Locale locale, RedirectAttributes rdat) throws Exception {
 		memberService.insertMember(memberVO);
 		rdat.addFlashAttribute("msg", "입력");
 		return "redirect:/admin/member/list";
@@ -244,16 +245,17 @@ public class AdminController {
 	 * @throws Exception 
 	 */
 	@RequestMapping(value = "/admin/member/update", method = RequestMethod.GET)
-	public String memberUpdate(@RequestParam("user_id") String user_id, Locale locale, Model model) throws Exception {
+	public String memberUpdate(@ModelAttribute("pageVO") PageVO pageVO, @RequestParam("user_id") String user_id, Locale locale, Model model) throws Exception {
 		MemberVO memberVO = memberService.viewMember(user_id);
 		model.addAttribute("memberVO", memberVO);
+		model.addAttribute("pageVO", pageVO);
 		return "admin/member/member_update";
 	}
 	@RequestMapping(value = "/admin/member/update", method = RequestMethod.POST)
-	public String memberUpdate(MemberVO memberVO, Locale locale, RedirectAttributes rdat) throws Exception {
+	public String memberUpdate(@ModelAttribute("pageVO") PageVO pageVO, MemberVO memberVO, Locale locale, RedirectAttributes rdat) throws Exception {
 		memberService.updateMember(memberVO);
 		rdat.addFlashAttribute("msg", "수정");
-		return "redirect:/admin/member/view?user_id=" + memberVO.getUser_id();
+		return "redirect:/admin/member/view?user_id=" + memberVO.getUser_id() + "&page=" + pageVO.getPage();
 	}
 	
 	/**

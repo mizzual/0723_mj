@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ include file="../include/header.jsp" %>
 
 <!-- Content Wrapper. Contains page content -->
@@ -77,10 +78,12 @@
                     <c:forEach items="${memberList}" var="memberVO" varStatus="status">
                     <tr>
                       <td>${memberVO.user_id}</td>
-                      <td><a href="/admin/member/view?user_id=${memberVO.user_id}&page=${pageVO.page}">${memberVO.user_name}</a></td>
+                      <td><a href="/admin/member/view?user_id=${memberVO.user_id}&page=${pageVO.page}">${memberVO.user_name}[${memberVO.point}]</a></td>
                       <td>${memberVO.email}</td>
                       <td><span class="tag tag-success">${memberVO.enabled}</span></td>
-                      <td>${memberVO.reg_date}</td>
+                      <td>
+                      <fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${memberVO.reg_date}" />
+                      </td>
                       <td><small class="badge badge-danger">${memberVO.levels}</small></td>
                     </tr>                    
                     </c:forEach>
