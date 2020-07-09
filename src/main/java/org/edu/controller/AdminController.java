@@ -236,10 +236,13 @@ public class AdminController {
 	}
 	@RequestMapping(value = "/admin/member/write", method = RequestMethod.POST)
 	public String memberWrite(@Valid MemberVO memberVO, Locale locale, RedirectAttributes rdat) throws Exception {
-		//String new_pw = memberVO.getUser_pw();//1234
-		//스프링 시큐리티 4.x BCryptPasswordEncoder 암호화 사용
-		BCryptPasswordEncoder bcryptPasswordEncoder = new BCryptPasswordEncoder(10);
-		
+		String new_pw = memberVO.getUser_pw();//예를 들면 1234
+		if(new_pw != "") {
+			//스프링 시큐리티 4.x BCryptPasswordEncoder 암호화 사용
+			BCryptPasswordEncoder bcryptPasswordEncoder = new BCryptPasswordEncoder(10);
+			String bcryptPassword = bcryptPasswordEncoder.encode(new_pw);//예, 1234 -> 암호화 처리됨
+			memberVO.setUser_pw(bcryptPassword);//DB에 들어가기전 값 set시킴.
+		}
 		memberService.insertMember(memberVO);
 		rdat.addFlashAttribute("msg", "입력");
 		return "redirect:/admin/member/list";
@@ -258,6 +261,13 @@ public class AdminController {
 	}
 	@RequestMapping(value = "/admin/member/update", method = RequestMethod.POST)
 	public String memberUpdate(@ModelAttribute("pageVO") PageVO pageVO, MemberVO memberVO, Locale locale, RedirectAttributes rdat) throws Exception {
+		String new_pw = memberVO.getUser_pw();//예를 들면 1234
+		if(new_pw != "") {
+			//스프링 시큐리티 4.x BCryptPasswordEncoder 암호화 사용
+			BCryptPasswordEncoder bcryptPasswordEncoder = new BCryptPasswordEncoder(10);
+			String bcryptPassword = bcryptPasswordEncoder.encode(new_pw);//예, 1234 -> 암호화 처리됨
+			memberVO.setUser_pw(bcryptPassword);//DB에 들어가기전 값 set시킴.
+		}		
 		memberService.updateMember(memberVO);
 		rdat.addFlashAttribute("msg", "수정");
 		return "redirect:/admin/member/view?user_id=" + memberVO.getUser_id() + "&page=" + pageVO.getPage();
