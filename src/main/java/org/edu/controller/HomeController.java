@@ -76,7 +76,7 @@ public class HomeController {
 	/**
 	 * 샘플 파일 홈 입니다.
 	 */
-	@RequestMapping(value = "/sample/", method = RequestMethod.GET)
+	@RequestMapping(value = "/sample", method = RequestMethod.GET)
 	public String sample(Locale locale, Model model) {
 		
 		return "sample/home";
