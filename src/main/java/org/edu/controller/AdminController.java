@@ -18,6 +18,7 @@ import org.edu.vo.BoardVO;
 import org.edu.vo.MemberVO;
 import org.edu.vo.PageVO;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
@@ -235,6 +236,10 @@ public class AdminController {
 	}
 	@RequestMapping(value = "/admin/member/write", method = RequestMethod.POST)
 	public String memberWrite(@Valid MemberVO memberVO, Locale locale, RedirectAttributes rdat) throws Exception {
+		//String new_pw = memberVO.getUser_pw();//1234
+		//스프링 시큐리티 4.x BCryptPasswordEncoder 암호화 사용
+		BCryptPasswordEncoder bcryptPasswordEncoder = new BCryptPasswordEncoder(10);
+		
 		memberService.insertMember(memberVO);
 		rdat.addFlashAttribute("msg", "입력");
 		return "redirect:/admin/member/list";
