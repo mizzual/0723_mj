@@ -2,6 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <%@ include file="include/header.jsp" %>
+<script>
+if('${param.msg}' == "fail"){
+	alert('로그인에 실패했습니다.! 상세메세지 ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}');
+}
+</script>
 	<!-- container start -->
 	<div id="container">
 		<!-- location_area -->
@@ -37,8 +42,7 @@
 				</fieldset>
 			</form>
 			<!-- //appForm -->
-			<br>
-			<c:out value="${error}" /> 이론상 트루값이 출력 ${error}
+			
 		</div>
 		<!-- //bodytext_area -->
 
