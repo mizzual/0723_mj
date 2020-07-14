@@ -235,18 +235,18 @@ public class HomeController {
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
+	 * @throws Exception 
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
+	public String home(Locale locale, Model model) throws Exception {
+		PageVO pageVO = new PageVO();
+		if(pageVO.getPage() == null) {
+			pageVO.setPage(1);//초기 page변수값 지정
+		}
+		pageVO.setPerPageNum(5);//1페이지당 보여줄 게시물 수 강제지정
+		pageVO.setTotalCount(boardService.countBno(pageVO));//강제로 입력한 값을 쿼리로 대체OK.
+		List<BoardVO> list = boardService.selectBoard(pageVO);
+		model.addAttribute("boardList", list);		
 		return "home";
 	}
 	
