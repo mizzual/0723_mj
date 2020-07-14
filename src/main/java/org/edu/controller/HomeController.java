@@ -1,6 +1,7 @@
 package org.edu.controller;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -246,6 +247,25 @@ public class HomeController {
 		pageVO.setPerPageNum(5);//1페이지당 보여줄 게시물 수 강제지정
 		pageVO.setTotalCount(boardService.countBno(pageVO));//강제로 입력한 값을 쿼리로 대체OK.
 		List<BoardVO> list = boardService.selectBoard(pageVO);
+		
+		//첨부파일 출력때문에 추가 Start
+		List<BoardVO> boardListFiles = new ArrayList<BoardVO>();
+		int index = 0;
+		for(BoardVO vo:list) {
+			List<String> files = boardService.selectAttach(vo.getBno());
+			String[] filenames = new String[files.size()];
+			int cnt = 0;
+			for(String fileName : files) {
+				filenames[cnt++] = fileName;
+			}
+			vo.setFiles(filenames);//String[]
+			System.out.println("=====디버그1=====" + filenames);
+			System.out.println("=====디버그2=====" + vo);
+			boardListFiles.add(vo);
+		}
+		//System.out.println("======디버그3=======" + boardListFiles);
+		model.addAttribute("boardListFiles", boardListFiles);
+		//첨부파일 출력때문에 추가 End
 		
 		model.addAttribute("boardList", list);		
 		return "home";

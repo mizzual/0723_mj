@@ -71,7 +71,7 @@ public class BoardVO {
 	public String toString() {
 		return "BoardVO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regdate="
 				+ regdate + ", update_date=" + update_date + ", view_count=" + view_count + ", reply_count="
-				+ reply_count + "]";
+				+ reply_count + "]" + files;
 	}
 	public String[] getFiles() {
 		return files;
