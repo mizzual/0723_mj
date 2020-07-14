@@ -93,6 +93,7 @@ public class HomeController {
 		//여기까지 첨부파일때문에 추가
 		model.addAttribute("boardVO", boardVO);
 		model.addAttribute("pageVO", pageVO);
+		model.addAttribute("extNameArray", fileDataUtil.getExtNameArray());
 		return "board/board_view";
 	}
 	
