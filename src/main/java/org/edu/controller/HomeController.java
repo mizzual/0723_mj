@@ -246,6 +246,7 @@ public class HomeController {
 		pageVO.setPerPageNum(5);//1페이지당 보여줄 게시물 수 강제지정
 		pageVO.setTotalCount(boardService.countBno(pageVO));//강제로 입력한 값을 쿼리로 대체OK.
 		List<BoardVO> list = boardService.selectBoard(pageVO);
+		
 		model.addAttribute("boardList", list);		
 		return "home";
 	}
