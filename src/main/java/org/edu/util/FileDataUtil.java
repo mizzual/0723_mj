@@ -2,6 +2,7 @@ package org.edu.util;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -19,6 +20,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class FileDataUtil {
+	
+	private ArrayList<String> extNameArray = new ArrayList<String>() {
+		
+	}
 	//첨부파일 업로드 경로 변수값으로 가져옴 servlet-context.xml
 	@Resource(name="uploadPath")
 	private String uploadPath;
