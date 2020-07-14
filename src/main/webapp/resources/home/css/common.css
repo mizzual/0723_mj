@@ -243,9 +243,9 @@ footer .foot_area .snslink li + li + li a {background-image:url(../img/ico_insta
 .pop_content .pop_list li .pop_txt p {padding-top:10px; line-height:1.8; font-size:17px; width:95%; margin:0 auto; overflow:hidden; word-break:keep-all; letter-spacing:-2px;}
 
 /* sub_page */
-.location_area {height:445px; background:url(../img/img_top2.jpg) no-repeat center bottom;}
+.location_area {height:445px; background:#0068d1}
 .location_area.about {}
-.location_area.customer {background-image:url(../img/img_top2.jpg);}
+.location_area.customer {background:#0068d1}
 .location_area.package {background-image:url(../img/img_top3.jpg);}
 .location_area.ticket {background-image:url(../img/img_top4.jpg);}
 .location_area.member {background-image:url(../img/img_top5.jpg);}
