@@ -265,6 +265,22 @@
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+<script>
+//=========고전적인 자바스크립트 방식 ============//
+function myFunc() {//function 함수이름() { }
+	alert('테스트');
+}
+myFunc();//함수호출==실행
+//========JQuery 스크립트 방식 =========//
+$(document).ready(function(){//함수명 없이 실행 == 콜백함수.
+	alert('테스트2');
+	$("tr").css("background-color","red");
+});
+//=====================//
+//function() { //콜백함수 호출없이 실행
+//	alert('테스트2');
+//}
+</script>
 
 </body>
 </html>
