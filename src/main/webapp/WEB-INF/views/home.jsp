@@ -70,7 +70,7 @@
 			<h2>OOOO OOOOO 스프링 <b>TOP 3</b></h2>
 			<div class="about_box">
 				<ul class="place_list box_inner clear">
-					<c:forEach items="${boardListFiles}" var="boardVO" varStatus="status">
+					<c:forEach items="${boardList}" var="boardVO" varStatus="status">
 						<c:if test="${status.count <= 3}">
 						<li><a href="/board/view?bno=${boardVO.bno}">
 								<!-- 첨부파일이 있을때 if -->
