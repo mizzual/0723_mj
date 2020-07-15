@@ -52,6 +52,29 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
+	 * 게시물관리 > 삭제 입니다.
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/board/delete", method = RequestMethod.POST)
+	public String boardDelete(@RequestParam("bno") Integer bno, Locale locale, RedirectAttributes rdat) throws Exception {
+		List<String> files = boardService.selectAttach(bno);
+		
+		boardService.deleteBoard(bno);
+		
+		//첨부파일 삭제(아래)
+		for(String fileName : files) {
+			//삭제 명령문 추가(아래)
+			File target = new File(fileDataUtil.getUploadPath(), fileName);
+			if(target.exists()) {
+				target.delete();
+			}
+		}		
+		
+		rdat.addFlashAttribute("msg", "삭제");
+		return "redirect:/board/list";
+	}
+	
+	/**
 	 * 게시물관리 > 수정 입니다.
 	 * @throws Exception 
 	 */
