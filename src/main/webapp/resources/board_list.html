@@ -274,12 +274,12 @@ myFunc();//함수호출(콜)==실행
 //========JQuery 스크립트 방식 =========//
 $(document).ready(function(){//함수명 없이 실행 == 콜백함수.
 	alert('테스트2');
+	$("tr:even").css({"background-color":"black","color":"white"});
 	var cnt = 131;
 	$(".btn-primary").bind("click",function(event){
 		$("<tr><td>"+cnt+"</td><td>한줄추가</td><td>내용추가</td><td>2020.07.15</td><td>100</td></tr>").prependTo("table");
 		cnt = cnt + 1;
 	});
-	
 	//$("table thead tr").css({"background-color":"red"});
 	//$("#searchType").css({"width":"150px"});//제이쿼리 JS
 	//document.getElementById("searchType").style.width="200px";//오리지널 JS
