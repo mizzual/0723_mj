@@ -44,6 +44,7 @@
 				</c:if>
 			</ul>
 			<p class="btn_line txt_right">
+				<a href="/board/update?page=${pageVO.page}&amp;bno=${boardVO.bno}" class="btn_bbs">수정</a>
 				<a href="/board/list?page=${pageVO.page}" class="btn_bbs">목록</a>
 			</p>
 		</div>
