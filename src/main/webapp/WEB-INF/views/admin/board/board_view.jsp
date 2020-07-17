@@ -91,7 +91,7 @@
 											<div class="col-sm-12">
 												<!-- text input -->
 												<div class="form-group">
-													<label>Writer</label> <input id="replyer" type="text"
+													<label>Writer</label> <input id="replyerInput" type="text"
 														class="form-control" placeholder="USER ID">
 												</div>
 											</div>
@@ -99,7 +99,7 @@
 											<div class="col-sm-12">
 												<!-- text input -->
 												<div class="form-group">
-													<label>Reply Text</label> <input id="replytext" type="text"
+													<label>Reply Text</label> <input id="replytextInput" type="text"
 														class="form-control" placeholder="REPLY TEXT">
 												</div>
 											</div>
@@ -177,8 +177,30 @@
 							<script>
 							$(document).ready(function() {
 								$("#insertApplyBtn").bind("click",function(){
-									var replyer = $("#replyer").val();
-									var replytext = $("#replytext").val();
+									var replyer = $("#replyerInput").val();
+									var replytext = $("#replytextInput").val();
+									$.ajax({
+										type:'post',
+										url:'/reply/insert',
+										headers: {
+											"Content-Type":"application/json",
+											"X-HTTP-Method-Override":"POST"
+										},
+										dataType:'text',
+										data: JSON.stringify({
+											bno:bno,
+											replyer:replyer,
+											replytext:replytext
+										}),
+										success:function(result){
+											if(result=='SUCCESS'){
+												alert("등록 되었습니다.");
+												getPage("/reply/select/"+bno);
+												$("#replyerInput").val("");
+												$("#replytextInput").val("");
+											}
+										}
+									});
 								});
 							});
 							</script>
@@ -201,7 +223,16 @@
 							    </div>
 							  </div>
 							</div>
-							
+							<script>
+							$(document).ready(function(){
+								//선택한 댓글에 대한 모달창에 데이터 바인딩
+								$(".timeline").on("click", ".replyLi", function(event) {
+									var reply = $(this);
+									$("#replytext").val(reply.find(".timeline-body").text());
+									$(".modal-title").html(reply.attr("data-rno"));
+								});
+							});
+							</script>
 							<td>
 								<nav aria-label="Contacts Page Navigation">
 									<ul class="pagination justify-content-center m-0">
