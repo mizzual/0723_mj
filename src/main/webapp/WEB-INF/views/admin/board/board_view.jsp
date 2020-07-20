@@ -125,8 +125,7 @@
 											<div class="replyLi" data-rno={{rno}}>
 												<i class="fas fa-comments bg-blue"></i>
 												<div class="timeline-item">
-													<h3 class="timeline-header">
-														<a href="#">{{rno}}-{{replyer}}</a> 												</h3>
+													<h3 class="timeline-header">{{replyer}}</h3>
 													<div class="timeline-body">{{replytext}}</div>
 													<div class="timeline-footer">
 														<a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modifyModal">Modify</a>
@@ -176,7 +175,34 @@
 							</div>
 							<script>
 							$(document).ready(function() {
-								$("#insertApplyBtn").bind("click",function(){
+								$("#replyModBtn").on("click",function(){
+									var replytext = $("#replytext").val();
+									//alert(replytext);//디버그: 입력값 확인용
+									//return false;//디버그: 여기까지 실행 끝내는 명령
+									$.ajax({
+										type:'put',
+										url:'/reply/update/',
+										headers: {
+											"Content-Type":"application/json",
+											"X-HTTP-Method-Override":"POST"
+										},
+										dataType:'text',
+										data: JSON.stringify({
+											bno:bno,
+											replyer:replyer,
+											replytext:replytext
+										}),
+										success:function(result){
+											if(result=='SUCCESS'){
+												alert("등록 되었습니다.");
+												getPage("/reply/select/"+bno);
+												$("#replyerInput").val("");
+												$("#replytextInput").val("");
+											}
+										}
+									});
+								});
+								$("#insertApplyBtn").on("click",function(){
 									var replyer = $("#replyerInput").val();
 									var replytext = $("#replytextInput").val();
 									$.ajax({
@@ -213,6 +239,7 @@
 								<h4 class="modal-title"></h4>
 							      </div>
 							      <div class="modal-body" data-rno>
+							       <input type="text" id="replyNo" class="form-control">
 								<p><input type="text" id="replytext" class="form-control"></p>
 							      </div>
 							      <div class="modal-footer">
@@ -225,11 +252,12 @@
 							</div>
 							<script>
 							$(document).ready(function(){
-								//선택한 댓글에 대한 모달창에 데이터 바인딩
+								//선택한 댓글(template:빵틀)의 데이터를 모달창의 id,클래스에 데이터 바인딩
 								$(".timeline").on("click", ".replyLi", function(event) {
 									var reply = $(this);
+									$("#replyNo").html(reply.attr("data-rno"));
+									$(".modal-title").val(reply.find(".timeline-header").text());
 									$("#replytext").val(reply.find(".timeline-body").text());
-									$(".modal-title").html(reply.attr("data-rno"));
 								});
 							});
 							</script>
