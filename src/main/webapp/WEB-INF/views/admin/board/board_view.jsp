@@ -147,11 +147,21 @@
 											}
 											//pageVO를 파싱하는 함수(아래)
 											var printPageVO = function(pageVO, target) {
-												target.html("");
+												var paging = "";
+												console.log(pageVO);//디버그
+												if(pageVO.prev){
+													paging = paging + '<li class="page-item"><a class="page-link" href="'+(pageVO.startPage)-1+'">이전</a></li>';
+												}
+												for(var cnt=pageVO.startPage;cnt<=pageVO.endPage;cnt++){
+													var active = (cnt==pageVO.page)?"active":"";
+													paging = paging + '<li class="page-item '+active+'"><a class="page-link" href="'+cnt+'">'+cnt+'</a></li>';
+												}
+												if(pageVO.next)
+												target.html(paging);
 											}
 											function getPage(pageInfo) {
 												$.getJSON(pageInfo, function(data){
-													alert(pageInfo);//디버그
+													//alert(pageInfo);//디버그
 													printReplyList(data.replyList, $("#replyDiv"), $("#template"));
 													printPageVO(data.pageVO, $(".pagination"));
 													$("#modifyModal").modal('hide');//수정,삭제 후 모달창 없애기
@@ -161,6 +171,12 @@
 											//댓글 리스트 출력실행
 											$(document).ready(function(){
 												getPage("/reply/select/" + bno + "/" + page);
+												//페이징번호 클릭시 페이지이동이 아니고, getPage함수 싷행이 되면 OK.
+												$(".pagination").on("click", "li a", function(event){
+													event.preventDefault();//기본 a href 이동 이벤트를 금지
+													page = $(this).attr("href");//페이지번호 1, 2, 3,...
+													getPage("/reply/select/"+bno+"/"+page);
+												});
 											});
 										</script>
 										
@@ -194,7 +210,7 @@
 										success:function(result){
 											if(result=='SUCCESS'){
 												alert("삭제 되었습니다.");
-												getPage("/reply/select/"+bno);
+												getPage("/reply/select/"+bno+"/"+page);
 											}
 										}
 									});
@@ -219,7 +235,7 @@
 										success:function(result){
 											if(result=='SUCCESS'){
 												alert("수정 되었습니다.");
-												getPage("/reply/select/"+bno);
+												getPage("/reply/select/"+bno+"/"+page);
 											}
 										}
 									});
@@ -244,7 +260,7 @@
 										success:function(result){
 											if(result=='SUCCESS'){
 												alert("등록 되었습니다.");
-												getPage("/reply/select/"+bno);
+												getPage("/reply/select/"+bno+"/"+page);
 												$("#replyerInput").val("");
 												$("#replytextInput").val("");
 											}
