@@ -147,7 +147,7 @@
 											function getPage(pageInfo) {
 												$.getJSON(pageInfo, function(data){
 													printData(data, $("#replyDiv"), $("#template"));
-													//$("#modifyModal").modal('hide');
+													$("#modifyModal").modal('hide');//수정,삭제 후 모달창 없애기
 												});
 											}
 											//여기까지는 변수+함수 정의하고, 실제 사용은 아래부터 실행
@@ -175,33 +175,49 @@
 							</div>
 							<script>
 							$(document).ready(function() {
-								$("#replyModBtn").on("click",function(){
-									var replytext = $("#replytext").val();
-									//alert(replytext);//디버그: 입력값 확인용
-									//return false;//디버그: 여기까지 실행 끝내는 명령
+								$("#replyDelBtn").on("click",function(){
+									var rno = $("#rno").val();
 									$.ajax({
-										type:'put',
-										url:'/reply/update/',
+										type:'delete',
+										url:'/reply/delete/'+rno,
 										headers: {
 											"Content-Type":"application/json",
-											"X-HTTP-Method-Override":"POST"
+											"X-HTTP-Method-Override":"DELETE"
 										},
-										dataType:'text',
-										data: JSON.stringify({
-											bno:bno,
-											replyer:replyer,
-											replytext:replytext
-										}),
 										success:function(result){
 											if(result=='SUCCESS'){
-												alert("등록 되었습니다.");
+												alert("삭제 되었습니다.");
 												getPage("/reply/select/"+bno);
-												$("#replyerInput").val("");
-												$("#replytextInput").val("");
 											}
 										}
 									});
 								});
+								
+								$("#replyModBtn").on("click",function(){
+									var replytext = $("#replytext").val();
+									var rno = $("#rno").val();
+									//alert(replytext + rno);//디버그: 입력값 확인용
+									//return false;//디버그: 여기까지 실행 끝내는 명령
+									$.ajax({
+										type:'put',
+										url:'/reply/update/'+rno,
+										headers: {
+											"Content-Type":"application/json",
+											"X-HTTP-Method-Override":"PUT"
+										},
+										dataType:'text',
+										data: JSON.stringify({
+											replytext:replytext
+										}),
+										success:function(result){
+											if(result=='SUCCESS'){
+												alert("수정 되었습니다.");
+												getPage("/reply/select/"+bno);
+											}
+										}
+									});
+								});
+								
 								$("#insertApplyBtn").on("click",function(){
 									var replyer = $("#replyerInput").val();
 									var replytext = $("#replytextInput").val();
@@ -239,7 +255,7 @@
 								<h4 class="modal-title"></h4>
 							      </div>
 							      <div class="modal-body" data-rno>
-							       <input type="text" id="replyNo" class="form-control">
+							       <input type="hidden" id="rno" class="form-control">
 								<p><input type="text" id="replytext" class="form-control"></p>
 							      </div>
 							      <div class="modal-footer">
@@ -255,8 +271,8 @@
 								//선택한 댓글(template:빵틀)의 데이터를 모달창의 id,클래스에 데이터 바인딩
 								$(".timeline").on("click", ".replyLi", function(event) {
 									var reply = $(this);
-									$("#replyNo").html(reply.attr("data-rno"));
-									$(".modal-title").val(reply.find(".timeline-header").text());
+									$("#rno").val(reply.attr("data-rno"));
+									$(".modal-title").html(reply.find(".timeline-header").text());
 									$("#replytext").val(reply.find(".timeline-body").text());
 								});
 							});
