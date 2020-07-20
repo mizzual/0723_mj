@@ -137,23 +137,30 @@
 										<script>
 											//댓글 변수+함수 초기화
 											var bno = ${boardVO.bno};
-											//replyArr=Json배열데이터, target=출력위치, template~=반복구문
-											var printData = function(replyArr, target, templateObject){
+											var page = 1;//페이징변수 초기값
+											//replyArr=Json배열데이터 파싱, target=출력위치, template~=반복구문
+											var printReplyList = function(replyArr, target, templateObject){
 												var template = Handlebars.compile(templateObject.html());
 												var html = template(replyArr);
 												$(".replyLi").remove();
 												target.after(html);
 											}
+											//pageVO를 파싱하는 함수(아래)
+											var printPageVO = function(pageVO, target) {
+												target.html("");
+											}
 											function getPage(pageInfo) {
 												$.getJSON(pageInfo, function(data){
-													printData(data, $("#replyDiv"), $("#template"));
+													alert(pageInfo);//디버그
+													printReplyList(data.replyList, $("#replyDiv"), $("#template"));
+													printPageVO(data.pageVO, $(".pagination"));
 													$("#modifyModal").modal('hide');//수정,삭제 후 모달창 없애기
 												});
 											}
 											//여기까지는 변수+함수 정의하고, 실제 사용은 아래부터 실행
 											//댓글 리스트 출력실행
 											$(document).ready(function(){
-												getPage("/reply/select/" + bno);
+												getPage("/reply/select/" + bno + "/" + page);
 											});
 										</script>
 										
