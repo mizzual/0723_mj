@@ -291,17 +291,7 @@
 							    </div>
 							  </div>
 							</div>
-							<script>
-							$(document).ready(function(){
-								//선택한 댓글(template:빵틀)의 데이터를 모달창의 id,클래스에 데이터 바인딩
-								$(".timeline").on("click", ".replyLi", function(event) {
-									var reply = $(this);
-									$("#rno").val(reply.attr("data-rno"));
-									$(".modal-title").html(reply.find(".timeline-header").text());
-									$("#replytext").val(reply.find(".timeline-body").text());
-								});
-							});
-							</script>
+							
 							<td>
 								<nav aria-label="Contacts Page Navigation">
 									<ul class="pagination justify-content-center m-0">
@@ -320,4 +310,18 @@
 			</div>
 			</div>
 			<!-- //Content Wrapper -->
+<!-- 댓글 관련 자바스크립트 시작 -->
+<script>
+//댓글 리스트에서 댓글 수정버튼 클릭시 모달창 내용에 바인딩 시키는 코딩(아래)
+$(document).ready(function(){
+	//선택한 댓글(template:빵틀)의 데이터를 모달창의 id,클래스에 데이터 바인딩
+	$(".timeline").on("click", ".replyLi", function(event) {
+		var reply = $(this);
+		$("#rno").val(reply.attr("data-rno"));
+		$(".modal-title").html(reply.find(".timeline-header").text());
+		$("#replytext").val(reply.find(".timeline-body").text());
+	});
+});
+</script>
+<!-- 댓글 관련 자바스크립트 끝 -->
 <%@ include file="../include/footer.jsp" %> 
