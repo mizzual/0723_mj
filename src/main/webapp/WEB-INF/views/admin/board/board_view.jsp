@@ -150,13 +150,15 @@
 												var paging = "";
 												console.log(pageVO);//디버그
 												if(pageVO.prev){
-													paging = paging + '<li class="page-item"><a class="page-link" href="'+(pageVO.startPage)-1+'">이전</a></li>';
+													paging = paging + '<li class="page-item"><a class="page-link" href="'+(pageVO.startPage-1)+'">이전</a></li>';
 												}
 												for(var cnt=pageVO.startPage;cnt<=pageVO.endPage;cnt++){
 													var active = (cnt==pageVO.page)?"active":"";
 													paging = paging + '<li class="page-item '+active+'"><a class="page-link" href="'+cnt+'">'+cnt+'</a></li>';
 												}
-												if(pageVO.next)
+												if(pageVO.next) {
+													paging = paging + '<li class="page-item"><a class="page-link" href="'+(pageVO.endPage+1)+'">다음</a></li>';
+												}
 												target.html(paging);
 											}
 											function getPage(pageInfo) {
