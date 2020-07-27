@@ -73,8 +73,7 @@
 		DataSource 설정으로 JDBC 연결후, MyBatis와 MySql을 연동시킴. 
 		SqlSessionFactory : myBatis와 스프링의 Connection 생성.
 	 -->		 		
-	<bean id="sqlSessionFactory" 
-	      class="org.mybatis.spring.SqlSessionFactoryBean">	   
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">	   
 	    <!-- 
 	    	JDBC커넥션을 처리하는 DataSource와 mybatis를 연결.
 	     -->
@@ -83,8 +82,7 @@
 	 	<!-- 
 	 	    root-context.xml :: sqlSessionFactory 에 매퍼 xml 파일의 경로를 인식하게 함. 
 	 	 -->
-	 	 <property name="mapperLocations" 
-		      value="classpath:mappers/**/*Mapper.xml"></property>
+	 	 <property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
 	 	
 	</bean>
 	 <!-- 
@@ -93,10 +91,8 @@
 		안정성등을 보장해주고, 개발자들이 직접 DB 연결, 종료작업하는 것을 줄여줌.
 		SqlSessionFactory를 생성자로 주입함.
 	 -->
-	 <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" 
-	 	  destroy-method="clearCache">
-	  <constructor-arg name="sqlSessionFactory" 
-	    	ref="sqlSessionFactory"></constructor-arg>
+	 <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+	  <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
 	 </bean>
 	 <context:component-scan base-package="org.edu.dao" />	
 	 <context:component-scan base-package="org.edu.service" />	
@@ -105,8 +101,7 @@
 	 <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 	 <aop:config></aop:config>
 	 <!-- 대표적으로 게시판 입력 트랜잭션에서 이용 -->
-	 <bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	 <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"></property>
 	 </bean>
 	 <tx:annotation-driven />
